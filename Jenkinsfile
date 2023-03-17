@@ -9,7 +9,7 @@ pipeline
     {
         stage('Build') 
         {
-            step 
+            steps 
             {
                  git 'https://github.com/jglick/simple-maven-project-with-tests.git'
                  bat "mvn -Dmaven.test.failure.ignore=true clean package"
@@ -27,7 +27,7 @@ pipeline
         
         
         stage('Test') {
-            step {
+            steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     git 'https://github.com/VishakhaRohit/Nov2022POM'
                     bat "mvn clean install"
@@ -37,7 +37,7 @@ pipeline
                 
      
         stage('Publish Allure Reports') {
-           step {
+           steps {
                 script {
                     allure([
                         includeProperties: false,
@@ -52,7 +52,7 @@ pipeline
         
    
         stage('Publish Extent Report'){
-            step{
+            steps{
                      publishHTML([allowMissing: false,
                                   alwaysLinkToLastBuild: false, 
                                   keepAll: false, 

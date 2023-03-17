@@ -13,19 +13,19 @@ pipeline{
             
             stage("Run UTs")
             {
-                step{
+                steps{
                     echo("Run UTs")
                 }
             }
             
-            stage("Deploy to dev")
+            stages("Deploy to dev")
             {
                 step{
                     echo("dev deployment")
                 }
             }
             
-             stage("Deploy to qa")
+             stages("Deploy to qa")
             {
                 step{
                     echo("qa deployment")
@@ -34,14 +34,14 @@ pipeline{
             
              stage("Run Automation Reg Test")
             {
-                step{
+                steps{
                     echo("Run Automation Reg Test")
                 }
             }
             
              stage("Deploy to stage")
             {
-                step{
+                steps{
                     echo("stage deployment")
                 }
             }
