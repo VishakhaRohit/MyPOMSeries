@@ -13,35 +13,35 @@ pipeline{
             
             stage("Run UTs")
             {
-                steps{
+                step{
                     echo("Run UTs")
                 }
             }
             
             stage("Deploy to dev")
             {
-                steps{
+                step{
                     echo("dev deployment")
                 }
             }
             
              stage("Deploy to qa")
             {
-                steps{
+                step{
                     echo("qa deployment")
                 }
             }
             
              stage("Run Automation Reg Test")
             {
-                steps{
+                step{
                     echo("Run Automation Reg Test")
                 }
             }
             
              stage("Deploy to stage")
             {
-                steps{
+                step{
                     echo("stage deployment")
                 }
             }
