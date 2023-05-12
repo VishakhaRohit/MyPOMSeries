@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 
 import com.qa.opencart.utils.Constants;
 import com.qa.opencart.utils.Errors;
+import com.qa.opencart.utils.ExcelUtil;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
@@ -82,13 +83,24 @@ public class AccountsPageTest extends BaseTest{
 
 	}
 	
+	@DataProvider
+	public Object[][] productSelectData()
+	{
+		return new Object[][] {
+			{"macbook","MacBook"},
+			{"iMac","iMac"},
+			{"Samsung","Samsung SyncMaster 941BW"}
+		};
+	}
+	
 	@Description("Select Product Test")
 	@Severity(SeverityLevel.MINOR)
-	@Test(priority=6)
-	public void selectProductTest()
+	@Test(priority=6,dataProvider = "productSelectData")
+	public void selectProductTest(String productName,String mainProductName)
 	{
-		searchResultsPage = accountsPage.doSearch("macBook");
-		productInfoPage = searchResultsPage.selectProduct("MacBook");
+		searchResultsPage = accountsPage.doSearch(productName);
+		productInfoPage = searchResultsPage.selectProduct(mainProductName);
+		Assert.assertEquals(productInfoPage.getProductHeader(),mainProductName);
 	}
 	
 }

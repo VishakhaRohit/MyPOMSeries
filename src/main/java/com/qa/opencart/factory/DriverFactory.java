@@ -16,8 +16,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-
 public class DriverFactory {
 
 	public WebDriver driver;
@@ -32,15 +30,12 @@ public class DriverFactory {
 		optionsManager = new OptionsManager(prop);
 
 		if (browserName.equals("chrome")) {
-			WebDriverManager.chromedriver().setup();
 //			driver = new ChromeDriver(optionsManager.getChromeOptions());
 			tlDriver.set(new ChromeDriver(optionsManager.getChromeOptions()));
 		} else if (browserName.equals("firefox")) {
-			WebDriverManager.firefoxdriver().setup();
 //			driver = new FirefoxDriver(optionsManager.getFirefoxOptions());
 			tlDriver.set(new FirefoxDriver(optionsManager.getFirefoxOptions()));
 		} else if (browserName.equals("safari")) {
-//			driver = new SafariDriver();
 			tlDriver.set(new SafariDriver());
 		} else {
 			System.out.println("Please pass the right browser....");
@@ -62,6 +57,9 @@ public class DriverFactory {
 		return getDriver();
 	}
 
+	/**
+	 * it will return a thread local copy of the WebDriver
+	 */
 	public static synchronized WebDriver getDriver() {
 		return tlDriver.get();
 	}

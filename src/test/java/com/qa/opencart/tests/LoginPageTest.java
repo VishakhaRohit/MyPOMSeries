@@ -5,7 +5,6 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.qa.opencart.listeners.TestAllureListener;
-import com.qa.opencart.utils.Constants;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
@@ -14,7 +13,7 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 
 @Epic("Design Open Cart App : Login Page")
-@Story("Open Cart Login Design with multiple features...")
+@Story("Open Cart Login Page Design with multiple features...")
 @Listeners(TestAllureListener.class)
 
 public class LoginPageTest extends BaseTest{
@@ -24,8 +23,7 @@ public class LoginPageTest extends BaseTest{
 	@Test(priority = 1)
 	public void loginPageTitleTest()
 	{
-		String actTitle = loginPage.getLoginPageTitle();
-		Assert.assertEquals(actTitle, Constants.LOGIN_PAGE_TITLE);
+		Assert.assertTrue(loginPage.getLoginPageTitle());
 	}
 	
 	@Description("Login Page Url Test")
@@ -33,8 +31,7 @@ public class LoginPageTest extends BaseTest{
 	@Test(priority = 2)
 	public void loginPageUrlTest()
 	{
-		String actUrl = loginPage.getLoginPageUrl();
-		Assert.assertTrue(actUrl.contains(Constants.LOGIN_PAGE_URL_FRACTION));
+		Assert.assertTrue(loginPage.getLoginPageUrl());
 	}
 	
 	@Description("Login Page Register Link Test")

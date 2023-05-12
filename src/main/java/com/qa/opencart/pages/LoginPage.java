@@ -28,15 +28,15 @@ public class LoginPage {
 	private By errorMsg = By.cssSelector("div.alert.alert-danger.alert-dismissible");
 	
 	@Step("getting login page title.....")
-	public String getLoginPageTitle()
+	public boolean getLoginPageTitle()
 	{
-		return driver.getTitle();
+		return eleUtil.waitForTitleContain(Constants.LOGIN_PAGE_TITLE, Constants.DEFAULT_TIME_OUT);
 	}
 	
 	@Step("getting login page url...")
-	public String getLoginPageUrl()
+	public boolean getLoginPageUrl()
 	{
-		return driver.getCurrentUrl();
+		return eleUtil.waitForUrlToContain(Constants.LOGIN_PAGE_URL_FRACTION, Constants.DEFAULT_TIME_OUT);
 	}
 	
 	@Step("register link is exist or not...")

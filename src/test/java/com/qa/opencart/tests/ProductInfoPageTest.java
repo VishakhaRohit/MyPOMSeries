@@ -17,14 +17,22 @@ public class ProductInfoPageTest extends BaseTest{
 	}
 	
 	@Test(priority=1)
+	public void getHeaderTest()
+	{
+		searchResultsPage = accountsPage.doSearch("MacBook");
+		productInfoPage = searchResultsPage.selectProduct("MacBook");
+		Assert.assertEquals(productInfoPage.getProductHeader(),"MacBook");
+	}
+	
+	@Test(priority=2)
 	public void getImageCountTest()
 	{
 		searchResultsPage = accountsPage.doSearch("MacBook");
 		productInfoPage = searchResultsPage.selectProduct("MacBook");
-		Assert.assertEquals(productInfoPage.getImageCount(), Constants.MACBBOK_IMAGE_COUNT);
+		Assert.assertEquals(productInfoPage.getImageCount(), Constants.MACBOOK_IMAGE_COUNT);
 	}
 	
-	@Test(priority=2)
+	@Test(priority=3)
 	public void getProductInfoTest()
 	{
 		searchResultsPage = accountsPage.doSearch("MacBook");
