@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 public class OrderPage {
 
 	private By order = By.id("order");
+	String id = "89787";
 	
 	public void orderPage()
 	{
