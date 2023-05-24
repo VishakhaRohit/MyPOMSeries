@@ -29,7 +29,7 @@ pipeline
         stage('Test') {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    git 'https://github.com/VishakhaRohit/Nov2022POM'
+                    git 'https://github.com/VishakhaRohit/MyPOMSeries'
                     bat "mvn clean install"
                 }
             }
