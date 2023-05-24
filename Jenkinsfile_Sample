@@ -1,58 +1,57 @@
 pipeline{
     
     agent any
+    
+    stages{
+    
+        stage("Build"){
+            steps{
+                echo("build the project")
+            }
+        }
         
-        stages{
-            
-            stage("Build")
-            {
-                steps{
-                    echo("Build")
-                }
+        
+        
+         stage("Deploy to dev"){
+            steps{
+                echo("deploying to dev env")
             }
-            
-            stage("Run UTs")
-            {
-                steps{
-                    echo("Run UTs")
-                }
+        }
+        
+        
+        
+        stage("Deploy to qa"){
+            steps{
+                echo("deploying to qa env")
             }
-            
-            stages("Deploy to dev")
-            {
-                step{
-                    echo("dev deployment")
-                }
+        }
+        
+        stage("Run regression automation test cases"){
+            steps{
+                echo("Run regression automation test cases")
             }
-            
-             stages("Deploy to qa")
-            {
-                step{
-                    echo("qa deployment")
-                }
+        }
+        
+        stage("Deploy to stage"){
+            steps{
+                echo("deploying to stage env")
             }
-            
-             stage("Run Automation Reg Test")
-            {
-                steps{
-                    echo("Run Automation Reg Test")
-                }
+        }
+        
+        stage("Run sanity automation test cases"){
+            steps{
+                echo("Run sanity automation test cases")
             }
-            
-             stage("Deploy to stage")
-            {
-                steps{
-                    echo("stage deployment")
-                }
+        }
+        
+        stage("Deploy to prod"){
+            steps{
+                echo("deploying to prod env")
             }
-            
-                 stage("Deploy to PROD")
-            {
-                steps{
-                    echo("prod deployment")
-                }
-            }
-            
         }
     
+    
+        
+    }
+
 }
