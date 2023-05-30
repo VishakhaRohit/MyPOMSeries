@@ -7,6 +7,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.asserts.SoftAssert;
 
+import org.testng.annotations.Parameters;
 import com.qa.opencart.factory.DriverFactory;
 import com.qa.opencart.pages.AccountsPage;
 import com.qa.opencart.pages.LoginPage;
@@ -26,11 +27,18 @@ public class BaseTest {
 	RegistrationPage registrationPage;
 	SoftAssert softAssert;
 	
+	@Parameters({"browser"})
 	@BeforeTest
-	public void setUp()
+	public void setUp(String browserName)
 	{
 		df = new DriverFactory();
 		prop = df.inti_Prop();
+		
+		if(browserName!=null)
+		{
+			prop.setProperty("browser", browserName);
+		}
+		
 		driver = df.inti_Driver(prop);
 		loginPage = new LoginPage(driver);
 		softAssert = new SoftAssert();
