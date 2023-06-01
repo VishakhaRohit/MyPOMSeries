@@ -124,7 +124,7 @@ public class DriverFactory {
 
 		try {
 			if (envName == null) {
-				System.out.println("Running on Environment: PROD env....");
+				System.out.println("Running on Environment: QA env....");
 				ip = new FileInputStream("./src/test/resources/config/qa.config.properties");
 			} else {
 				System.out.println("Running on Environment: " + envName);
