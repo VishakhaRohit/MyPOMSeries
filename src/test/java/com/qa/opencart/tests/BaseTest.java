@@ -40,7 +40,7 @@ public class BaseTest {
 			prop.setProperty("browserversion", browserVersion);
 			prop.setProperty("testcasename", testCaseName);
 		}
-		
+	
 		driver = df.inti_Driver(prop);
 		loginPage = new LoginPage(driver);
 		softAssert = new SoftAssert();

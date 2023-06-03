@@ -21,7 +21,7 @@ public class OptionsManager {
 	public ChromeOptions getChromeOptions()
 	{
 		co = new ChromeOptions();
-		co.addArguments("--remote-allow-origins=*","ignore-certificate-errors");
+//		co.addArguments("--remote-allow-origins=*","ignore-certificate-errors");
 		
 		if (Boolean.parseBoolean(prop.getProperty("remote"))) {
 			co.setBrowserVersion(prop.getProperty("browserversion"));
