@@ -10,15 +10,6 @@ import org.testng.annotations.Test;
 import com.qa.opencart.utils.Constants;
 import com.qa.opencart.utils.Errors;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
-import io.qameta.allure.Story;
-
-@Epic("Design Open Cart App : Account Page")
-@Story("Open Cart Account Page Design with multiple features...")
-
 public class AccountsPageTest extends BaseTest{
 
 	@BeforeClass
@@ -27,8 +18,6 @@ public class AccountsPageTest extends BaseTest{
 		accountsPage = loginPage.doLogin(prop.getProperty("userName"), prop.getProperty("password"));
 	}
 	
-	@Description("Account Page Title Test")
-	@Severity(SeverityLevel.MINOR)
 	@Test(priority = 1)
 	public void getAccountPageTitleTest()
 	{
@@ -37,24 +26,18 @@ public class AccountsPageTest extends BaseTest{
 		Assert.assertEquals(actTitle,Constants.ACCOUNT_PAGE_TITLE,Errors.ACCOUNT_PAGE_TITLE_NOT_FOUND_ERROR_MSG);
 	}
 	
-	@Description("Account Page search field Test")
-	@Severity(SeverityLevel.CRITICAL)
 	@Test(priority = 2)
 	public void getSearchFieldExistTest()
 	{
 		Assert.assertTrue(accountsPage.isSearchFieldExist());
 	}
 	
-	@Description("LogOut Link Test")
-	@Severity(SeverityLevel.MINOR)
 	@Test(priority = 3)
 	public void isLogOutLinkExistTest()
 	{
 		Assert.assertTrue(accountsPage.isLogOutLinkExist());
 	}
 	
-	@Description("Account Section List Test")
-	@Severity(SeverityLevel.NORMAL)
 	@Test(priority = 4)
 	public void getAccountsSectionListTest()
 	{
@@ -72,8 +55,6 @@ public class AccountsPageTest extends BaseTest{
 		};
 	}
 	
-	@Description("Do Search Test")
-	@Severity(SeverityLevel.MINOR)
 	@Test(priority = 5,dataProvider = "productData")
 	public void doSearchTest(String productName)
 	{
@@ -92,8 +73,6 @@ public class AccountsPageTest extends BaseTest{
 		};
 	}
 	
-	@Description("Select Product Test")
-	@Severity(SeverityLevel.MINOR)
 	@Test(priority=6,dataProvider = "productSelectData")
 	public void selectProductTest(String productName,String mainProductName)
 	{

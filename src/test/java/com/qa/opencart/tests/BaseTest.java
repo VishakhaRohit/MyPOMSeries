@@ -19,29 +19,20 @@ import com.qa.opencart.pages.SearchResultsPage;
 public class BaseTest {
 
 	DriverFactory df;
-	Properties prop;
 	WebDriver driver;
-	LoginPage loginPage;
-	AccountsPage accountsPage;
-	SearchResultsPage searchResultsPage;
-	ProductInfoPage productInfoPage;
-	RegistrationPage registrationPage;
-	SoftAssert softAssert;
+	protected Properties prop;
+	protected LoginPage loginPage;
+	protected AccountsPage accountsPage;
+	protected SearchResultsPage searchResultsPage;
+	protected ProductInfoPage productInfoPage;
+	protected RegistrationPage registrationPage;
+	protected SoftAssert softAssert;
 	
-	@Parameters({"browser","browserversion","testcasename"})
 	@BeforeTest
-	public void setUp(@Optional("chrome")String browserName,@Optional("114.0")String browserVersion,@Optional("")String testCaseName)
+	public void setUp()
 	{
 		df = new DriverFactory();
 		prop = df.inti_Prop();
-		
-		if(browserName!=null)
-		{
-			prop.setProperty("browser", browserName);
-			prop.setProperty("browserversion", browserVersion);
-			prop.setProperty("testcasename", testCaseName);
-		}
-	
 		driver = df.inti_Driver(prop);
 		loginPage = new LoginPage(driver);
 		softAssert = new SoftAssert();

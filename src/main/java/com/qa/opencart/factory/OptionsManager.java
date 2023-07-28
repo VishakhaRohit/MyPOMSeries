@@ -20,16 +20,7 @@ public class OptionsManager {
 	
 	public ChromeOptions getChromeOptions()
 	{
-		co = new ChromeOptions();
-//		co.addArguments("--remote-allow-origins=*","ignore-certificate-errors");
-		
-		if (Boolean.parseBoolean(prop.getProperty("remote"))) {
-			co.setBrowserVersion(prop.getProperty("browserversion"));
-			co.setCapability("browsername", "chrome");
-			co.setCapability("enableVNC", true);
-			co.setCapability("name", prop.getProperty("testcasename"));
-		}
-		
+		co = new ChromeOptions();		
 		if(Boolean.parseBoolean(prop.getProperty("headless")))
 		{
 			co.addArguments("--headLess");

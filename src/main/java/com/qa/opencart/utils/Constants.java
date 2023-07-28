@@ -21,7 +21,8 @@ public class Constants {
 		accSecList.add("My Orders");
 		accSecList.add("My Affiliate Account");
 		accSecList.add("Newsletter");
-	
+
+		
 		return accSecList;
 	}
 }
